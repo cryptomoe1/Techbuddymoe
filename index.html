@@ -1030,13 +1030,14 @@
     <div class="plan">
       <div class="plan-name">Basic</div>
       <div class="plan-price">R199</div>
-      <div class="plan-period">per month · 1 person</div>
+      <div class="plan-period">per month · 1 person · 1 device</div>
       <ul class="plan-features">
-        <li><span class="check">✓</span> Covers 1 person / 1 device</li>
+        <li><span class="check">✓</span> Covers 1 person &amp; 1 device</li>
         <li><span class="check">✓</span> Unlimited WhatsApp support</li>
         <li><span class="check">✓</span> Unlimited phone call help</li>
         <li><span class="check">✓</span> Scam alert notifications</li>
         <li><span class="check">✓</span> Response within 2 hours</li>
+        <li style="color:#5A7A9E; font-size:0.82rem;">❌ Cannot add extra person</li>
       </ul>
       <button onclick="openModal('TechBuddy Basic Plan', '199.00', 'Monthly tech support subscription - Basic - 1 person', true)" class="btn-primary" style="width:100%; cursor:pointer; font-family:Nunito,sans-serif;">💳 Subscribe Now</button>
     </div>
@@ -1045,14 +1046,15 @@
       <div class="featured-badge">⭐ Most Popular</div>
       <div class="plan-name">Standard</div>
       <div class="plan-price" style="color:white">R349</div>
-      <div class="plan-period">per month · 1 person</div>
+      <div class="plan-period">per month · 2 people · 2 devices</div>
       <ul class="plan-features">
-        <li><span class="check">✓</span> Covers 1 person / 1 device</li>
+        <li><span class="check">✓</span> Covers 2 people &amp; 2 devices</li>
         <li><span class="check">✓</span> Everything in Basic</li>
         <li><span class="check">✓</span> 1 home visit per month</li>
         <li><span class="check">✓</span> Device health check</li>
         <li><span class="check">✓</span> Priority response (1 hour)</li>
         <li><span class="check">✓</span> Monthly digital safety tip</li>
+        <li><span class="check">✓</span> Add extra person for R99/month</li>
       </ul>
       <button onclick="openModal('TechBuddy Standard Plan', '349.00', 'Monthly tech support subscription - Standard - 1 person', true)" class="btn-primary" style="width:100%; cursor:pointer; font-family:Nunito,sans-serif; border:none;">💳 Subscribe Now</button>
     </div>
@@ -1060,14 +1062,14 @@
     <div class="plan">
       <div class="plan-name">Premium</div>
       <div class="plan-price">R599</div>
-      <div class="plan-period">per month · 1 person</div>
+      <div class="plan-period">per month · 2 people · 2 devices</div>
       <ul class="plan-features">
-        <li><span class="check">✓</span> Covers 1 person / 1 device</li>
+        <li><span class="check">✓</span> Covers 2 people &amp; 2 devices</li>
         <li><span class="check">✓</span> Everything in Standard</li>
         <li><span class="check">✓</span> 2 home visits per month</li>
-        <li><span class="check">✓</span> Family dashboard access</li>
         <li><span class="check">✓</span> Same-day response</li>
         <li><span class="check">✓</span> Monthly family update report</li>
+        <li><span class="check">✓</span> Add extra person for R99/month</li>
       </ul>
       <button onclick="openModal('TechBuddy Premium Plan', '599.00', 'Monthly tech support subscription - Premium - 1 person', true)" class="btn-primary" style="width:100%; cursor:pointer; font-family:Nunito,sans-serif;">💳 Subscribe Now</button>
     </div>
@@ -1147,7 +1149,7 @@ document.getElementById("payModal").addEventListener("click", function(e) {
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="section-label">Happy Clients</div>
-  <div class="section-title">What our Tech community<br>is saying</div>
+  <div class="section-title">What our community<br>is saying</div>
   <div class="testi-grid">
     <div class="testi-card">
       <div class="stars">★★★★★</div>
@@ -1173,12 +1175,23 @@ document.getElementById("payModal").addEventListener("click", function(e) {
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <p>The young man who came to my house was so patient. He never made me feel silly for not knowing. He fixed my phone AND showed me how to do it myself next time.</p>
+      <p>Ich war so verwirrt mit meinem neuen Smartphone. TechBuddy hat alles erklärt — auf Englisch, aber so geduldig und langsam dass ich alles verstehen konnte. Jetzt kann ich meine Familie in Deutschland per Video anrufen!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👴</div>
+        <div>
+          <div class="testi-name">Klaus, 76</div>
+          <div class="testi-loc">Gordon's Bay · German expat</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>Als Deutsche in Südafrika war ich unsicher über Online-Banking hier. TechBuddy hat mir alles Schritt für Schritt gezeigt und sichergestellt dass mein Konto sicher ist. Sehr professionell und vertrauenswürdig!</p>
       <div class="testi-author">
         <div class="testi-avatar">👵</div>
         <div>
-          <div class="testi-name">Elaine, 71</div>
-          <div class="testi-loc">Strand</div>
+          <div class="testi-name">Helga, 71</div>
+          <div class="testi-loc">Somerset West · German expat</div>
         </div>
       </div>
     </div>
@@ -1212,10 +1225,10 @@ document.getElementById("payModal").addEventListener("click", function(e) {
       </ul>
     </div>
     <div class="family-visual">
-      <div class="big-icon">👨‍👩‍👧‍👦</div>
-      <h3>Family Add-On Plan</h3>
-      <p>Add the Family Dashboard to any subscription and stay in the loop — no matter where in the world you are.</p>
-      <div class="price-pill">+ R99 / month</div>
+      <div class="big-icon">📋</div>
+      <h3>Free Monthly Family Report</h3>
+      <p>Every end of the month we send a detailed report to your nominated family member — what we helped with, device health status, and any scam attempts we caught.</p>
+      <div class="price-pill" style="background:rgba(122,158,126,0.15); color:#6B8F6E; border-color:rgba(122,158,126,0.3);">✅ Included Free — All Plans</div>
     </div>
   </div>
 </section>
