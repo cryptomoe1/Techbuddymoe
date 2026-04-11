@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechBuddy — Friendly Tech Help for Seniors in Cape Town</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #0A0F1E;
+    --warm-white: #0D1428;
+    --amber: #4A90D9;
+    --amber-light: #6AAEE8;
+    --amber-dark: #2E6FAF;
+    --brown: #E8F0FF;
+    --brown-mid: #B8C8E8;
+    --brown-light: #8A9EC0;
+    --sage: #3A7BD5;
+    --sage-light: #5A9AE8;
+    --gold: #C9A84C;
+    --text: #F0F4FF;
+    --text-mid: #C8D4F0;
+    --text-light: #8A9EC0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #0A0F1E;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(8, 12, 28, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74, 144, 217, 0.2);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #F5F0E8;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--amber-light); }
+
+  nav ul {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  nav ul a {
+    text-decoration: none;
+    color: rgba(245,240,232,0.7);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--amber-light); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--amber-dark) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(74,144,217,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(58,123,213,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+
+  .hero-content {
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74,144,217,0.12);
+    color: #6AAEE8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(74,144,217,0.25);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    color: var(--brown);
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 40px;
+    font-weight: 400;
+    max-width: 520px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: white;
+    padding: 16px 34px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 8px 24px rgba(232,137,74,0.35);
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(232,137,74,0.45);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--brown-mid);
+    padding: 16px 34px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(61,43,31,0.2);
+    transition: all 0.25s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  .hero-right {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    animation: fadeUp 0.9s ease 0.3s both;
+  }
+
+  .hero-card {
+    background: #111827;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(61,43,31,0.12);
+    width: 280px;
+    border: 1px solid rgba(232,137,74,0.1);
+    margin-bottom: 16px;
+  }
+
+  .hero-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    margin-bottom: 6px;
+  }
+
+  .hero-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .trust-strip {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .trust-avatars {
+    display: flex;
+  }
+
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -8px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+  }
+
+  .avatar:first-child { margin-left: 0; }
+
+  .trust-text {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .trust-text strong {
+    color: var(--brown-mid);
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 90px 5%; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    color: var(--brown);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ── PROBLEMS ── */
+  .problems {
+    background: #060A18;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .problems::before {
+    content: '"';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 300px;
+    color: rgba(255,255,255,0.03);
+    top: -60px; left: 3%;
+    line-height: 1;
+  }
+
+  .problems .section-label { color: var(--amber-light); }
+  .problems .section-title { color: white; }
+  .problems .section-sub { color: rgba(255,255,255,0.65); }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+  }
+
+  .problem-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .problem-card:hover {
+    background: rgba(74,144,217,0.15);
+    border-color: rgba(74,144,217,0.3);
+    transform: translateY(-4px);
+  }
+
+  .problem-icon { font-size: 2rem; margin-bottom: 14px; }
+
+  .problem-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .problem-card p {
+    font-size: 0.87rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: #0D1428; }
+
+  .steps {
+    display: flex;
+    gap: 0;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: calc(16.66% + 16px);
+    right: calc(16.66% + 16px);
+    height: 2px;
+    background: linear-gradient(90deg, #4A90D9, #6AAEE8);
+  }
+
+  .step {
+    flex: 1;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .step:nth-child(1) { animation-delay: 0.1s; }
+  .step:nth-child(2) { animation-delay: 0.2s; }
+  .step:nth-child(3) { animation-delay: 0.3s; }
+
+  .step-num {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(232,137,74,0.35);
+  }
+
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .service-card {
+    background: #111827;
+    border-radius: 24px;
+    padding: 32px;
+    border: 1.5px solid rgba(74,144,217,0.12);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2E6FAF, #6AAEE8);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(61,43,31,0.1);
+    border-color: rgba(232,137,74,0.2);
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon { font-size: 2.4rem; margin-bottom: 18px; }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--cream); }
+
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .plan {
+    background: #111827;
+    border-radius: 28px;
+    padding: 36px 32px;
+    border: 2px solid rgba(74,144,217,0.12);
+    transition: all 0.3s;
+  }
+
+  .plan:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(61,43,31,0.1);
+  }
+
+  .plan.featured {
+    background: #060A18;
+    border-color: var(--amber);
+    position: relative;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -14px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--amber);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+
+  .plan.featured .plan-name { color: var(--amber-light); }
+
+  .plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan.featured .plan-price { color: white; }
+
+  .plan-period {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 28px;
+  }
+
+  .plan.featured .plan-period { color: rgba(255,255,255,0.5); }
+
+  .plan-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(61,43,31,0.06);
+  }
+
+  .plan.featured .plan-features li {
+    color: rgba(255,255,255,0.75);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .plan-features li:last-child { border: none; }
+
+  .check { color: var(--sage); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .plan.featured .check { color: var(--amber-light); }
+
+  .plan .btn-primary { display: block; text-align: center; width: 100%; }
+
+  .plan-btn-outline {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    border: 2px solid rgba(74,144,217,0.25);
+    color: var(--brown-mid);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .plan-btn-outline:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: #0D1428; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .testi-card {
+    background: #111827;
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid rgba(74,144,217,0.1);
+    position: relative;
+  }
+
+  .testi-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(74,144,217,0.15);
+    position: absolute;
+    top: 12px; right: 24px;
+    line-height: 1;
+  }
+
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+
+  .testi-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border: 2px solid rgba(232,137,74,0.2);
+  }
+
+  .testi-name {
+    font-weight: 700;
+    color: var(--brown);
+    font-size: 0.9rem;
+  }
+
+  .testi-loc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+
+  /* ── FAMILY SECTION ── */
+  .family {
+    background: linear-gradient(135deg, rgba(30,50,100,0.6) 0%, rgba(10,20,50,0.8) 100%);
+    border-radius: 0;
+  }
+
+  .family-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .family-features {
+    list-style: none;
+    margin-top: 28px;
+  }
+
+  .family-features li {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(61,43,31,0.08);
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    align-items: flex-start;
+  }
+
+  .family-features li:last-child { border: none; }
+
+  .family-features li span:first-child {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .family-visual {
+    background: #111827;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(61,43,31,0.1);
+    text-align: center;
+  }
+
+  .family-visual .big-icon { font-size: 5rem; margin-bottom: 20px; }
+
+  .family-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .family-visual p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .price-pill {
+    display: inline-block;
+    background: rgba(74,144,217,0.12);
+    color: #6AAEE8;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border: 1.5px solid rgba(74,144,217,0.25);
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: #060A18; color: white; text-align: center; }
+
+  .contact .section-label { color: var(--amber-light); }
+  .contact .section-title { color: white; }
+  .contact .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+
+  .contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 28px 36px;
+    text-align: center;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: white;
+  }
+
+  .contact-card:hover {
+    background: rgba(232,137,74,0.2);
+    border-color: rgba(232,137,74,0.4);
+    transform: translateY(-4px);
+  }
+
+  .contact-card .icon { font-size: 2.2rem; margin-bottom: 12px; }
+  .contact-card h3 { font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--amber-light); margin-bottom: 6px; }
+  .contact-card p { font-size: 1rem; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #040710;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 28px 5%;
+    font-size: 0.82rem;
+  }
+
+  footer strong { color: rgba(255,255,255,0.7); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-right { display: none; }
+    .steps::before { display: none; }
+    .steps { flex-direction: column; gap: 32px; }
+    .family-inner { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Tech<span>Buddy</span></div>
+  <ul>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#family">For Families</a></li>
+    <li><a href="#contact" class="nav-cta">Get Help Today</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📍 Serving Cape Town & Helderberg</div>
+    <h1>Your <em>friendly neighbour</em> for all things tech</h1>
+    <p>Confused by your phone? Worried about scams? Can't figure out WhatsApp? TechBuddy is patient, warm, and always on your side — no judgment, ever.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">📞 Call Us Today</a>
+      <a href="#pricing" class="btn-secondary">See Our Plans</a>
+    </div>
+    <div class="trust-strip">
+      <div class="trust-avatars">
+        <div class="avatar">👵</div>
+        <div class="avatar">👴</div>
+        <div class="avatar">👵</div>
+        <div class="avatar">👴</div>
+      </div>
+      <div class="trust-text">
+        <strong>Trusted by seniors across Cape Town</strong>
+        Vetted, patient & proudly South African
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-icon">🛡️</div>
+      <h3>Scam Protection</h3>
+      <p>We help you spot & avoid WhatsApp and email scams before they cost you.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🏠</div>
+      <h3>We Come To You</h3>
+      <p>Home visits in Somerset West, Strand, Gordon's Bay & surrounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" style="background:#080D1C; padding: 80px 5%; text-align:center;">
+  <div class="section-label" style="color:#6AAEE8;">Meet Your TechBuddy</div>
+  <div class="section-title" style="color:#E8F0FF; margin-bottom:12px;">A personal message<br>from Mohsin</div>
+  <p style="color:#8A9EC0; font-size:1.05rem; max-width:520px; margin:0 auto 44px; line-height:1.75;">
+    Before you call, get to know the person behind TechBuddy — why it was built, and why your trust means everything to us.
+  </p>
+  <div style="position:relative; max-width:780px; margin:0 auto; border-radius:20px; overflow:hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); border: 1px solid rgba(74,144,217,0.2);">
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe
+        src="https://www.youtube.com/embed/JWKDnlmAe3Q?rel=0&modestbranding=1&color=white"
+        title="Meet Your TechBuddy - Mohsin Introduction"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+  <p style="margin-top:24px; color:#5A7A9E; font-size:0.85rem;">
+    ▶ Also on YouTube — 
+    <a href="https://www.youtube.com/@Techbuddymoe" target="_blank" style="color:#6AAEE8; text-decoration:none; font-weight:700;">@Techbuddymoe</a>
+  </p>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="section-label">Sound Familiar?</div>
+  <div class="section-title">Tech doesn't have to be<br>this stressful</div>
+  <p class="section-sub">Every day, seniors across Cape Town face these same frustrations alone. You don't have to.</p>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📱</div>
+      <h3>"My phone says storage full again"</h3>
+      <p>Photos from the grandkids pile up and suddenly nothing works.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🚨</div>
+      <h3>"I got a scary WhatsApp message"</h3>
+      <p>Scammers specifically target seniors — and they're getting more convincing.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🏦</div>
+      <h3>"My banking app just locked me out"</h3>
+      <p>FNB, Capitec, Standard Bank — all helpful until suddenly they're not.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📺</div>
+      <h3>"DStv Now stopped working again"</h3>
+      <p>Passwords, updates, new remotes — it changes every few months.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🛒</div>
+      <h3>"I want to try Sixty60 but I'm scared"</h3>
+      <p>Online shopping feels risky without someone to guide you through it.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📹</div>
+      <h3>"I can't video call my daughter in the UK"</h3>
+      <p>FaceTime, Zoom, WhatsApp calls — one wrong tap and it disconnects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-label">Simple as 1-2-3</div>
+  <div class="section-title">Getting help has never<br>been easier</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Call or WhatsApp Us</h3>
+      <p>Reach your TechBuddy on a number you'll save in your phone. No apps. No queues. A real person answers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We Help Right Away</h3>
+      <p>Most issues are solved over the phone or video call — in plain English, at your pace. No rush, ever.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Or We Come To You</h3>
+      <p>For trickier issues, a friendly TechBuddy visits your home and sorts everything out in person.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Everything tech — handled<br>with patience & care</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>Scam & Fraud Protection</h3>
+      <p>We teach you to spot fake messages, suspicious links, and phone scams — and what to do if you've already clicked.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Smartphone Help</h3>
+      <p>Storage, battery, apps, calls, WhatsApp, photos — we fix it all and show you how for next time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏦</div>
+      <h3>Banking App Support</h3>
+      <p>FNB, Capitec, Standard Bank, Nedbank — we help you navigate safely, never asking for your passwords.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛒</div>
+      <h3>Online Shopping Setup</h3>
+      <p>Checkers Sixty60, Takealot, Woolworths — we set it up, walk you through your first order, and stay on call.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📹</div>
+      <h3>Video Calling</h3>
+      <p>WhatsApp, Zoom, FaceTime — stay connected with family anywhere in the world, easily and reliably.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📺</div>
+      <h3>Streaming & TV</h3>
+      <p>Netflix, DStv Now, Showmax — set up, sorted, and showing your favourite shows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label">Simple Pricing</div>
+  <div class="section-title">No surprises. No contracts.<br>Cancel anytime.</div>
+  <div class="plans">
+
+    <div class="plan">
+      <div class="plan-name">Basic</div>
+      <div class="plan-price">R199</div>
+      <div class="plan-period">per month</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Unlimited WhatsApp support</li>
+        <li><span class="check">✓</span> Unlimited phone call help</li>
+        <li><span class="check">✓</span> Scam alert notifications</li>
+        <li><span class="check">✓</span> Response within 2 hours</li>
+      </ul>
+      <a href="#contact" class="plan-btn-outline">Get Started</a>
+    </div>
+
+    <div class="plan featured">
+      <div class="featured-badge">⭐ Most Popular</div>
+      <div class="plan-name">Standard</div>
+      <div class="plan-price" style="color:white">R349</div>
+      <div class="plan-period">per month</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Everything in Basic</li>
+        <li><span class="check">✓</span> 1 home visit per month</li>
+        <li><span class="check">✓</span> Device health check</li>
+        <li><span class="check">✓</span> Priority response (1 hour)</li>
+        <li><span class="check">✓</span> Monthly digital safety tip</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+
+    <div class="plan">
+      <div class="plan-name">Premium</div>
+      <div class="plan-price">R599</div>
+      <div class="plan-period">per month</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Everything in Standard</li>
+        <li><span class="check">✓</span> 2 home visits per month</li>
+        <li><span class="check">✓</span> Family dashboard access</li>
+        <li><span class="check">✓</span> Same-day response</li>
+        <li><span class="check">✓</span> Monthly family update report</li>
+      </ul>
+      <a href="#contact" class="plan-btn-outline">Get Started</a>
+    </div>
+
+  </div>
+  <p style="text-align:center; margin-top:28px; color:var(--text-light); font-size:0.88rem;">
+    💡 Not ready to subscribe? Single home visit for <strong style="color:var(--brown-mid)">R350</strong> — no commitment needed.
+  </p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">Happy Clients</div>
+  <div class="section-title">What our Tech community<br>is saying</div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>I was about to send money to a scammer on WhatsApp. My TechBuddy called me back in 10 minutes and saved me. I don't know what I would have done without them.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👵</div>
+        <div>
+          <div class="testi-name">Margaret, 74</div>
+          <div class="testi-loc">Somerset West</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>My son in London pays for the Premium plan. Now I can video call him every Sunday and even do my Checkers shopping online. At 79, I never thought I'd say that!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👴</div>
+        <div>
+          <div class="testi-name">Hennie, 79</div>
+          <div class="testi-loc">Gordon's Bay</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>The young man who came to my house was so patient. He never made me feel silly for not knowing. He fixed my phone AND showed me how to do it myself next time.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👵</div>
+        <div>
+          <div class="testi-name">Elaine, 71</div>
+          <div class="testi-loc">Strand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="family" id="family">
+  <div class="family-inner">
+    <div>
+      <div class="section-label">For Adult Children</div>
+      <div class="section-title">Your parent is in<br>safe hands</div>
+      <p class="section-sub">Whether you're in Joburg, the UK, or Australia — TechBuddy keeps you connected and your loved one protected.</p>
+      <ul class="family-features">
+        <li>
+          <span>📊</span>
+          <span><strong>Monthly digital safety report</strong> — know exactly what we helped with and how your parent is managing.</span>
+        </li>
+        <li>
+          <span>🚨</span>
+          <span><strong>Scam alerts sent to you too</strong> — we notify you immediately if we spot a threat on their device.</span>
+        </li>
+        <li>
+          <span>📞</span>
+          <span><strong>You can log help requests</strong> — notice something wrong on their phone? WhatsApp us and we'll handle it.</span>
+        </li>
+        <li>
+          <span>💳</span>
+          <span><strong>You manage the subscription</strong> — pay on their behalf, cancel anytime, no lock-in.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="family-visual">
+      <div class="big-icon">👨‍👩‍👧‍👦</div>
+      <h3>Family Add-On Plan</h3>
+      <p>Add the Family Dashboard to any subscription and stay in the loop — no matter where in the world you are.</p>
+      <div class="price-pill">+ R99 / month</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title">Ready for your first<br>TechBuddy session?</div>
+  <p class="section-sub">Call, WhatsApp, or email us. A real person will respond — warmly, patiently, and without any tech jargon.</p>
+  <div class="contact-options">
+    <a href="tel:+27766712063" class="contact-card">
+      <div class="icon">📞</div>
+      <h3>Call Us</h3>
+      <p>+27 76 671 2063</p>
+    </a>
+    <a href="https://wa.me/27766712063" class="contact-card">
+      <div class="icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p>Message us anytime</p>
+    </a>
+    <a href="mailto:hello@techbuddysa.online" class="contact-card">
+      <div class="icon">✉️</div>
+      <h3>Email</h3>
+      <p>hello@techbuddysa.online</p>
+    </a>
+    <a href="https://techbuddysa.online" class="contact-card">
+      <div class="icon">🌐</div>
+      <h3>Website</h3>
+      <p>techbuddysa.online</p>
+    </a>
+    <a href="#" class="contact-card">
+      <div class="icon">🏠</div>
+      <h3>Service Area</h3>
+      <p>Somerset West, Strand,<br>Gordon's Bay & surrounds</p>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>TechBuddy</strong> · Cape Town, South Africa · Proudly helping seniors live confidently in a digital world 💛</p>
+  <p style="margin-top:10px; font-size:0.8rem;">
+    <a href="https://www.youtube.com/@Techbuddymoe" target="_blank" style="color:rgba(201,168,76,0.8); text-decoration:none;">▶ YouTube: @Techbuddymoe</a>
+  </p>
+</footer>
+</body>
+</html>
